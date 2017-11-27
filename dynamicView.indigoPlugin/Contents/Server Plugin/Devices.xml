@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<Devices>
+    <Device type="custom" id="dynamicView">
+        <Name>Dynamic View</Name>
+        <ConfigUI>
+            <Field id="help-1" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>The plugin can dynamically manage folders and files that follow the FoscamHD naming standard or alternatively, files using their last modified file date.</Label>
+            </Field>
+            <Field id="processMode" type="menu"  defaultValue="0" alwaysUseInDialogHeightCalc="true">
+                <Label>Processing Mode:</Label>
+                <List>
+                    <Option value="0">Foscam HD</Option>
+                    <Option value="1">Modified File Date Order</Option>
+                </List>
+            </Field>
+            <Field id="separator-1" type="separator" alwaysUseInDialogHeightCalc="true"/>
+            <Field id="help-2" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Subscribe to another Plugin's broadcasts in order to be advised when the files that are being 'dynamically viewed' are updated by the broadcasting plugin. This enables the Dynamic Viewer to keep track of changes and allow the latest files to be reviewed. By default the Dynamic Viewer listens to Broadcasts from the Foscam HD plugin.</Label>
+            </Field>
+            <Field id="broadcasterPluginId" type="menu" default="com.autologplugin.indigoplugin.foscamhdcontroller" alwaysUseInDialogHeightCalc="true">
+                <Label>Broadcaster Plugin:</Label>
+                <List class="self" method="broadcasterPluginMenu" dynamicReload="true"/>
+            </Field>
+            <Field id="messageType" type="textfield" default="updateDynamicView" alwaysUseInDialogHeightCalc="true">
+                <Label>Message Type:</Label>
+            </Field>
+            <Field id="separator-2" type="separator" alwaysUseInDialogHeightCalc="true"/>
+            <Field id="help-3" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Specify the full path to the root folder to be scanned for files.</Label>
+            </Field>
+            <Field id="rootFolder" type="textfield" alwaysUseInDialogHeightCalc="true">
+                <Label>Root Folder to Scan:</Label>
+                <Description>root folder to scan</Description>
+            </Field>
+            <Field id="help-4" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Specify the full path of a file symlink that will be created by the plugin. You will use this in a Control Page to display the currently selected file.</Label>
+            </Field>
+            <Field id="symlinkFile" type="textfield" alwaysUseInDialogHeightCalc="true">
+                <Label>Sym Link To File:</Label>
+                <Description>Path to sym link file</Description>
+            </Field>
+            <Field id="help-5" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Specify the full path of a file symlink that will be created by the plugin. You will use this in a Control Page to display the latest file.</Label>
+            </Field>
+            <Field id="symlinkLatestFile" type="textfield" alwaysUseInDialogHeightCalc="true">
+                <Label>Sym Link To Latest File:</Label>
+                <Description>Path to sym link latest file</Description>
+            </Field>
+<!--             <Field id="help-6" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Specify the number of latest files to cycle.</Label>
+            </Field>
+            <Field id="numberOfCycleFiles" type="textfield" alwaysUseInDialogHeightCalc="true">
+                <Label>Number of files to cycle:</Label>
+            </Field>
+            <Field id="help-7" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Specify the full path of a file symlink that will be created by the plugin. You will use this in a Control Page to display the cycling file.</Label>
+            </Field>
+            <Field id="symlinkCycleFile" type="textfield" alwaysUseInDialogHeightCalc="true">
+                <Label>Sym Link To Cycle File:</Label>
+                <Description>Path to sym link latest file</Description>
+            </Field>
+ -->            <Field id="separator-3" type="separator" alwaysUseInDialogHeightCalc="true"/>
+            <Field id="help-8" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Specify the full path of an existing file that you want displayed when no file is available to display. The plugin will point the above symlinks to this file when there is no file available.</Label>
+            </Field>
+            <Field id="defaultFile" type="textfield" alwaysUseInDialogHeightCalc="true">
+                <Label>Default File:</Label>
+                <Description>Path to default file</Description>
+            </Field>
+        </ConfigUI>
+        <States>
+            <State id="status">
+                <ValueType>Integer</ValueType>
+                <TriggerLabel>Status</TriggerLabel>
+                <ControlPageLabel>Status</ControlPageLabel>
+            </State>
+            
+            <State id="refreshCount">
+                <ValueType>Integer</ValueType>
+                <TriggerLabel>Refresh Count</TriggerLabel>
+                <ControlPageLabel>Refresh Count</ControlPageLabel>
+            </State>
+
+            <State id="selectedFilepath">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected Filepath</TriggerLabel>
+                <ControlPageLabel>Selected Filepath</ControlPageLabel>
+            </State>
+
+            <State id="latestFilename">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Latest Filename</TriggerLabel>
+                <ControlPageLabel>Latest Filename</ControlPageLabel>
+            </State>
+
+            <State id="latestFullFilename">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Latest Full Filename</TriggerLabel>
+                <ControlPageLabel>Latest Full Filename</ControlPageLabel>
+            </State>
+
+            <State id="latestFileDateTimeUI">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Latest File Date and Time (UI)</TriggerLabel>
+                <ControlPageLabel>Latest File Date and Time (UI)</ControlPageLabel>
+            </State>
+
+            <State id="selectedFilename">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected Filename</TriggerLabel>
+                <ControlPageLabel>Selected Filename</ControlPageLabel>
+            </State>
+
+            <State id="selectedDate">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected Date</TriggerLabel>
+                <ControlPageLabel>Selected Date</ControlPageLabel>
+            </State>
+
+            <State id="selectedHalfHour">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected Half-hour</TriggerLabel>
+                <ControlPageLabel>Selected Half-hour</ControlPageLabel>
+            </State>
+
+            <State id="selectedNumber">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected Number</TriggerLabel>
+                <ControlPageLabel>Selected Number</ControlPageLabel>
+            </State>
+
+            <State id="latestMaximum">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Latest Maximum</TriggerLabel>
+                <ControlPageLabel>Latest Maximum</ControlPageLabel>
+            </State>
+
+            <State id="selectedFileDateTimeUI">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected File Date and Time (UI)</TriggerLabel>
+                <ControlPageLabel>Selected File Date and Time (UI)</ControlPageLabel>
+            </State>
+
+            <State id="selectedDateUI">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected Date (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Date (UI)</ControlPageLabel>
+            </State>
+
+            <State id="selectedHalfHourUI">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected Half-hour (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Half-hour (UI)</ControlPageLabel>
+            </State>
+
+            <State id="selectedNumberUI">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected Number (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Number (UI)</ControlPageLabel>
+            </State>
+
+        </States>
+        <UiDisplayStateId>status</UiDisplayStateId>     
+    </Device>
+</Devices>

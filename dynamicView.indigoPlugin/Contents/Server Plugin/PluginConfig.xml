@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<PluginConfig>
+    <SupportURL>http://forums.indigodomo.com/viewforum.php?f=141</SupportURL>
+    <Field id="description" type="label">
+        <Label>This Plugin manages dynamic images for displaying in Control Pages. 😄</Label>
+    </Field>
+    <Field id="copyright" type="label">
+        <Label>Copyright © 2016-2017 Autolog</Label>
+    </Field>
+    <Field id="separator-1" type="separator"/>  
+    <Field id="help-1" type="label">
+        <Label>Use Update Check to check for a new release of the Dynamic View Controller plugin on Github. Use plugin menu to update plugin.</Label>
+    </Field>
+    <Field type="checkbox" id="updateCheck" defaultValue="true" tooltip="Tick to turn on checking for new Dynamic View Controller plugin version">
+        <Label>Check for updates:</Label>
+        <Description>Enable to check for new version of Dynamic View Controller plugin.</Description>
+    </Field>
+    <Field id="checkFrequency" type="menu" defaultValue="DAILY" enabledBindingId="updateCheck" tooltip="Select update check frequency">
+        <Label>Check Frequency:</Label>
+        <List>
+            <Option value="DAILY">Check every day</Option>
+            <Option value="WEEKLY">Check every week</Option>
+        </List>
+    </Field>
+
+    <Field id="separator-2" type="separator"/> 
+
+    <Field type="checkbox" id="monitorDebugEnabled" default="false">
+        <Label>Monitoring / debugging:</Label>
+        <Description>Enable monitoring and debugging options.</Description>
+    </Field>
+
+    <Field id="separator-3" type="separator" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true"/> 
+
+    <Field id="help-2" type="label" fontColor="darkgray" fontSize="small" alignWithControl="true" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+        <Label>Select monitoring / debugging to be performed by ticking required option(s) below and then clicking Save.</Label>
+    </Field>
+
+    <Field id="debugGeneral" type="checkbox" default="false" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+        <Label>General:</Label>
+        <Description>Debug 'general' processing.</Description>
+    </Field>
+
+     <Field id="monitorRefresh" type="checkbox" default="false" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+        <Label>Monitor Refresh:</Label>
+        <Description>Monitor 'Dynamic View' refresh processing.</Description>
+    </Field>
+
+    <Field id="debugRefresh" type="checkbox" default="false" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+        <Label>Debug Refresh:</Label>
+        <Description>Debug 'Dynamic View' refresh processing.</Description>
+    </Field>
+
+    <Field id="debugMethodTrace" type="checkbox" default="false" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+        <Label>Method Trace:</Label>
+        <Description>Trace Method calls.</Description>
+    </Field>
+
+</PluginConfig>

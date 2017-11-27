@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<Actions>
+	<Action id="initialiseDynamicState" deviceFilter="self">
+		<Name>Initialise Dynamic State</Name>
+		<CallbackMethod>initialiseDynamicState</CallbackMethod>
+	</Action>
+
+	<Action id="updateDynamicState" deviceFilter="self">
+		<Name>Update Dynamic State</Name>
+		<CallbackMethod>updateDynamicState</CallbackMethod>
+	</Action>
+
+	<Action id="skipToLatest" deviceFilter="self">
+		<Name>Skip To Latest</Name>
+		<CallbackMethod>skipToLatest</CallbackMethod>
+	</Action>
+
+	<Action id="daySkipBackward" deviceFilter="self">
+		<Name>Day Skip Back</Name>
+		<CallbackMethod>daySkipBackward</CallbackMethod>
+		<ConfigUI>
+			<Field id="number" type="textfield" defaultValue="1">
+				<Label>Number of Days To Skip Backward:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	<Action id="daySkipForward" deviceFilter="self">
+		<Name>Day Skip Forward</Name>
+		<CallbackMethod>daySkipForward</CallbackMethod>
+		<ConfigUI>
+			<Field id="number" type="textfield" defaultValue="1">
+				<Label>Number of Days To Skip Forward:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+
+	<Action id="halfHourSkipBackward" deviceFilter="self">
+		<Name>Time Skip Back</Name>
+		<CallbackMethod>timeSkipBackward</CallbackMethod>
+		<ConfigUI>
+			<Field id="number" type="textfield" defaultValue="1">
+				<Label>Number of Half-Hours To Skip Backward:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	<Action id="halfHourSkipForward" deviceFilter="self">
+		<Name>Time Skip Forward</Name>
+		<CallbackMethod>timeSkipForward</CallbackMethod>
+		<ConfigUI>
+			<Field id="number" type="textfield" defaultValue="1">
+				<Label>Number of Half-Hours To Skip Forward:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+
+	<Action id="skipBackward" deviceFilter="self">
+		<Name>Skip Back</Name>
+		<CallbackMethod>skipBackward</CallbackMethod>
+		<ConfigUI>
+			<Field id="number" type="textfield" defaultValue="1">
+				<Label>Number to Skip Backward:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	<Action id="skipForward" deviceFilter="self">
+		<Name>Skip Forward</Name>
+		<CallbackMethod>skipForward</CallbackMethod>
+		<ConfigUI>
+			<Field id="number" type="textfield" defaultValue="1">
+				<Label>Number to Skip Forward:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+
+</Actions>
