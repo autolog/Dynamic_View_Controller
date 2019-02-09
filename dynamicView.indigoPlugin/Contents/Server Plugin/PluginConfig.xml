@@ -8,21 +8,6 @@
         <Label>Copyright © 2016-2017 Autolog</Label>
     </Field>
     <Field id="separator-1" type="separator"/>  
-    <Field id="help-1" type="label">
-        <Label>Use Update Check to check for a new release of the Dynamic View Controller plugin on Github. Use plugin menu to update plugin.</Label>
-    </Field>
-    <Field type="checkbox" id="updateCheck" defaultValue="true" tooltip="Tick to turn on checking for new Dynamic View Controller plugin version">
-        <Label>Check for updates:</Label>
-        <Description>Enable to check for new version of Dynamic View Controller plugin.</Description>
-    </Field>
-    <Field id="checkFrequency" type="menu" defaultValue="DAILY" enabledBindingId="updateCheck" tooltip="Select update check frequency">
-        <Label>Check Frequency:</Label>
-        <List>
-            <Option value="DAILY">Check every day</Option>
-            <Option value="WEEKLY">Check every week</Option>
-        </List>
-    </Field>
-
     <Field id="separator-2" type="separator"/> 
 
     <Field type="checkbox" id="monitorDebugEnabled" default="false">
