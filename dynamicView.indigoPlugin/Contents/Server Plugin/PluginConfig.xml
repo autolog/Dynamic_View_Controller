@@ -5,40 +5,45 @@
         <Label>This Plugin manages dynamic images for displaying in Control Pages. 😄</Label>
     </Field>
     <Field id="copyright" type="label">
-        <Label>Copyright © 2016-2017 Autolog</Label>
+        <Label>Copyright © 2016-2022 Autolog</Label>
     </Field>
-    <Field id="separator-1" type="separator"/>  
-    <Field id="separator-2" type="separator"/> 
-
-    <Field type="checkbox" id="monitorDebugEnabled" default="false">
-        <Label>Monitoring / debugging:</Label>
-        <Description>Enable monitoring and debugging options.</Description>
+    <Field id="space-header-1" type="label">
+        <Label/>
     </Field>
-
-    <Field id="separator-3" type="separator" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true"/> 
-
-    <Field id="help-2" type="label" fontColor="darkgray" fontSize="small" alignWithControl="true" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
-        <Label>Select monitoring / debugging to be performed by ticking required option(s) below and then clicking Save.</Label>
+    <Field id="separator-1" type="separator"/>
+    <Field id="space-header-2" type="label">
+        <Label/>
     </Field>
-
-    <Field id="debugGeneral" type="checkbox" default="false" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
-        <Label>General:</Label>
-        <Description>Debug 'general' processing.</Description>
+    <Field id="header-debug" type="label" alwaysUseInDialogHeightCalc="true" fontColor="orange">
+        <Label>Plugin / Indigo Event Log Logging and Debug</Label>
+    </Field>
+    <Field id="space-header-1B" type="label">
+        <Label/>
     </Field>
 
-     <Field id="monitorRefresh" type="checkbox" default="false" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
-        <Label>Monitor Refresh:</Label>
-        <Description>Monitor 'Dynamic View' refresh processing.</Description>
-    </Field>
 
-    <Field id="debugRefresh" type="checkbox" default="false" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
-        <Label>Debug Refresh:</Label>
-        <Description>Debug 'Dynamic View' refresh processing.</Description>
-    </Field>
+	<Field id="space-7" type="label" alwaysUseInDialogHeightCalc="true"><Label/></Field>
 
-    <Field id="debugMethodTrace" type="checkbox" default="false" visibleBindingId="monitorDebugEnabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
-        <Label>Method Trace:</Label>
-        <Description>Trace Method calls.</Description>
-    </Field>
+	<Field id="eventLogLevel" type="menu" defaultValue="20" alwaysUseInDialogHeightCalc="true">
+		<Label>Logging Level - Indigo Event Log:</Label>
+		<List>
+			<Option value="10">Debug</Option>
+			<Option value="20">Informational Messages</Option>
+			<Option value="30">Warning Messages</Option>
+			<Option value="40">Error Messages</Option>
+			<Option value="50">Critical Errors Only</Option>
+		</List>
+	</Field>
+
+	<Field id="pluginLogLevel" type="menu" defaultValue="20" alwaysUseInDialogHeightCalc="true">
+		<Label>Logging Level - Plugin Event Log:</Label>
+		<List>
+			<Option value="10">Debug</Option>
+			<Option value="20">Informational Messages</Option>
+			<Option value="30">Warning Messages</Option>
+			<Option value="40">Error Messages</Option>
+			<Option value="50">Critical Errors Only</Option>
+		</List>
+	</Field>
 
 </PluginConfig>

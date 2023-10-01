@@ -3,9 +3,13 @@
     <Device type="custom" id="dynamicView">
         <Name>Dynamic View</Name>
         <ConfigUI>
-            <Field id="help-1" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
-                <Label>The plugin can dynamically manage folders and files that follow the FoscamHD naming standard or alternatively, files using their last modified file date.</Label>
+            <Field id="header-process-mode" type="label" alwaysUseInDialogHeightCalc="true" fontColor="orange">
+                <Label>Process Mode</Label>
             </Field>
+            <Field id="space-header-1B" type="label">
+                <Label/>
+            </Field>
+
             <Field id="processMode" type="menu"  defaultValue="0" alwaysUseInDialogHeightCalc="true">
                 <Label>Processing Mode:</Label>
                 <List>
@@ -13,61 +17,103 @@
                     <Option value="1">Modified File Date Order</Option>
                 </List>
             </Field>
-            <Field id="separator-1" type="separator" alwaysUseInDialogHeightCalc="true"/>
-            <Field id="help-2" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
-                <Label>Subscribe to another Plugin's broadcasts in order to be advised when the files that are being 'dynamically viewed' are updated by the broadcasting plugin. This enables the Dynamic Viewer to keep track of changes and allow the latest files to be reviewed. By default the Dynamic Viewer listens to Broadcasts from the Foscam HD plugin.</Label>
+            <Field id="help-1" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>^ The plugin can dynamically manage folders and files that follow a) the FoscamHD naming standard or b) last modified file date.</Label>
             </Field>
-            <Field id="broadcasterPluginId" type="menu" default="com.autologplugin.indigoplugin.foscamhdcontroller" alwaysUseInDialogHeightCalc="true">
+            <Field id="space-header-1" type="label">-->
+                <Label/>
+            </Field>
+            <Field id="separator-1" type="separator" alwaysUseInDialogHeightCalc="true"/>
+
+
+            <Field id="header-process-events" type="label" alwaysUseInDialogHeightCalc="true" fontColor="orange">
+                <Label>Events</Label>
+            </Field>
+            <Field id="space-header-2B" type="label">
+                <Label/>
+            </Field>
+
+            <Field id="eventSeconds" type="textfield" default="5" alwaysUseInDialogHeightCalc="true">
+                <Label>Event Seconds:</Label>
+            </Field>
+            <Field id="help-1B" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>^ The number of seconds that must elapse before a new event is considered to have occurred. Default is 5 seconds.</Label>
+            </Field>
+            <Field id="space-header-2" type="label">
+                <Label/>
+            </Field>
+
+            <Field id="separator-1B" type="separator" alwaysUseInDialogHeightCalc="true"/>
+
+
+            <Field id="header-process-broadcast" type="label" alwaysUseInDialogHeightCalc="true" fontColor="orange">
+                <Label>Broadcast</Label>
+            </Field>
+            <Field id="space-header-3B" type="label">
+                <Label/>
+            </Field>
+            <Field type="checkbox" id="enableBroadcastReceipt" default="false">
+                <Label>Enable Broadcaster Receipt:</Label>
+                <Description>Enable receipt of Indigo Broadcast Messages.</Description>
+            </Field>
+            <Field id="broadcasterPluginId" type="menu" default="com.autologplugin.indigoplugin.foscamhdcontroller" alwaysUseInDialogHeightCalc="true"
+                visibleBindingId="enableBroadcastReceipt" visibleBindingValue="true">
                 <Label>Broadcaster Plugin:</Label>
                 <List class="self" method="broadcasterPluginMenu" dynamicReload="true"/>
             </Field>
-            <Field id="messageType" type="textfield" default="updateDynamicView" alwaysUseInDialogHeightCalc="true">
+            <Field id="messageType" type="textfield" default="updateDynamicView" alwaysUseInDialogHeightCalc="true" visibleBindingId="enableBroadcastReceipt" visibleBindingValue="true">
                 <Label>Message Type:</Label>
             </Field>
+            <Field id="help-2" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true" visibleBindingId="enableBroadcastReceipt" visibleBindingValue="true">
+                <Label>^ Subscribe to another Plugin's broadcasts in order to be advised when the files that are being 'dynamically viewed' are updated by the broadcasting plugin. This enables the Dynamic Viewer to keep track of changes and allow the latest files to be reviewed. By default the Dynamic Viewer listens to Broadcasts from the Foscam HD plugin.</Label>
+            </Field>
+            <Field id="space-header-3" type="label">
+                <Label/>
+            </Field>
             <Field id="separator-2" type="separator" alwaysUseInDialogHeightCalc="true"/>
-            <Field id="help-3" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
-                <Label>Specify the full path to the root folder to be scanned for files.</Label>
+
+            <Field id="header-process-folders" type="label" alwaysUseInDialogHeightCalc="true" fontColor="orange">
+                <Label>Folders and Files</Label>
+            </Field>
+            <Field id="space-header-4B" type="label">
+                <Label/>
             </Field>
             <Field id="rootFolder" type="textfield" alwaysUseInDialogHeightCalc="true">
                 <Label>Root Folder to Scan:</Label>
                 <Description>root folder to scan</Description>
             </Field>
-            <Field id="help-4" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
-                <Label>Specify the full path of a file symlink that will be created by the plugin. You will use this in a Control Page to display the currently selected file.</Label>
+            <Field id="help-3" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>^ Specify the full path to the root folder to be scanned for files.</Label>
             </Field>
-            <Field id="symlinkFile" type="textfield" alwaysUseInDialogHeightCalc="true">
-                <Label>Sym Link To File:</Label>
-                <Description>Path to sym link file</Description>
+            <Field id="space-line-4" type="label">
+                <Label/>
             </Field>
-            <Field id="help-5" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
-                <Label>Specify the full path of a file symlink that will be created by the plugin. You will use this in a Control Page to display the latest file.</Label>
-            </Field>
-            <Field id="symlinkLatestFile" type="textfield" alwaysUseInDialogHeightCalc="true">
-                <Label>Sym Link To Latest File:</Label>
-                <Description>Path to sym link latest file</Description>
-            </Field>
-<!--             <Field id="help-6" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
-                <Label>Specify the number of latest files to cycle.</Label>
-            </Field>
-            <Field id="numberOfCycleFiles" type="textfield" alwaysUseInDialogHeightCalc="true">
-                <Label>Number of files to cycle:</Label>
-            </Field>
-            <Field id="help-7" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
-                <Label>Specify the full path of a file symlink that will be created by the plugin. You will use this in a Control Page to display the cycling file.</Label>
-            </Field>
-            <Field id="symlinkCycleFile" type="textfield" alwaysUseInDialogHeightCalc="true">
-                <Label>Sym Link To Cycle File:</Label>
-                <Description>Path to sym link latest file</Description>
-            </Field>
- -->            <Field id="separator-3" type="separator" alwaysUseInDialogHeightCalc="true"/>
-            <Field id="help-8" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
-                <Label>Specify the full path of an existing file that you want displayed when no file is available to display. The plugin will point the above symlinks to this file when there is no file available.</Label>
-            </Field>
+
             <Field id="defaultFile" type="textfield" alwaysUseInDialogHeightCalc="true">
                 <Label>Default File:</Label>
                 <Description>Path to default file</Description>
             </Field>
+            <Field id="help-8" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Specify the full path of an existing file that you want displayed when no file is available to display.</Label>
+            </Field>
+
+            <Field id="space-header-A" type="label">
+                <Label/>
+            </Field>
+            <Field id="separator-A" type="separator" alwaysUseInDialogHeightCalc="true"/>
+
+            <Field id="header-debug" type="label" alwaysUseInDialogHeightCalc="true" fontColor="orange">
+                <Label>Debug</Label>
+            </Field>
+            <Field id="space-header-4C" type="label">
+                <Label/>
+            </Field>
+            <Field type="checkbox" id="enableDebug" default="false">
+                <Label>Debug:</Label>
+                <Description>Enable debug of Dynamic View device.</Description>
+            </Field>
         </ConfigUI>
+
         <States>
             <State id="status">
                 <ValueType>Integer</ValueType>
@@ -81,10 +127,10 @@
                 <ControlPageLabel>Refresh Count</ControlPageLabel>
             </State>
 
-            <State id="selectedFilepath">
+            <State id="selectedFullFilename">
                 <ValueType>String</ValueType> 
-                <TriggerLabel>Selected Filepath</TriggerLabel>
-                <ControlPageLabel>Selected Filepath</ControlPageLabel>
+                <TriggerLabel>Selected Full Filename</TriggerLabel>
+                <ControlPageLabel>Selected Full Filename</ControlPageLabel>
             </State>
 
             <State id="latestFilename">
@@ -123,6 +169,12 @@
                 <ControlPageLabel>Selected Half-hour</ControlPageLabel>
             </State>
 
+            <State id="selectedEvent">
+                <ValueType>String</ValueType>
+                <TriggerLabel>Selected Event</TriggerLabel>
+                <ControlPageLabel>Selected Event</ControlPageLabel>
+            </State>
+
             <State id="selectedNumber">
                 <ValueType>String</ValueType> 
                 <TriggerLabel>Selected Number</TriggerLabel>
@@ -141,22 +193,52 @@
                 <ControlPageLabel>Selected File Date and Time (UI)</ControlPageLabel>
             </State>
 
-            <State id="selectedDateUI">
-                <ValueType>String</ValueType> 
-                <TriggerLabel>Selected Date (UI)</TriggerLabel>
-                <ControlPageLabel>Selected Date (UI)</ControlPageLabel>
+            <State id="selectedDateLongUI">
+                <ValueType>String</ValueType>
+                <TriggerLabel>Selected Date Long (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Date Long (UI)</ControlPageLabel>
             </State>
 
-            <State id="selectedHalfHourUI">
-                <ValueType>String</ValueType> 
-                <TriggerLabel>Selected Half-hour (UI)</TriggerLabel>
-                <ControlPageLabel>Selected Half-hour (UI)</ControlPageLabel>
+            <State id="selectedDateNumberUI">
+                <ValueType>String</ValueType>
+                <TriggerLabel>Selected Date Number (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Date Number (UI)</ControlPageLabel>
             </State>
 
-            <State id="selectedNumberUI">
+            <State id="selectedHalfHourLongUI">
                 <ValueType>String</ValueType> 
-                <TriggerLabel>Selected Number (UI)</TriggerLabel>
-                <ControlPageLabel>Selected Number (UI)</ControlPageLabel>
+                <TriggerLabel>Selected Half-hour Long (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Half-hour Long(UI)</ControlPageLabel>
+            </State>
+
+            <State id="selectedHalfHourNumberUI">
+                <ValueType>String</ValueType>
+                <TriggerLabel>Selected Half-hour Number (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Half-hour Number (UI)</ControlPageLabel>
+            </State>
+
+            <State id="selectedEventLongUI">
+                <ValueType>String</ValueType>
+                <TriggerLabel>Selected Event Long (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Event Long (UI)</ControlPageLabel>
+            </State>
+
+            <State id="selectedEventNumberUI">
+                <ValueType>String</ValueType>
+                <TriggerLabel>Selected Event Number (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Event Number (UI)</ControlPageLabel>
+            </State>
+
+            <State id="selectedImageLongUI">
+                <ValueType>String</ValueType>
+                <TriggerLabel>Selected Image Long (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Image Long (UI)</ControlPageLabel>
+            </State>
+
+            <State id="selectedImageNumberUI">
+                <ValueType>String</ValueType> 
+                <TriggerLabel>Selected Image Number (UI)</TriggerLabel>
+                <ControlPageLabel>Selected Image Number (UI)</ControlPageLabel>
             </State>
 
         </States>

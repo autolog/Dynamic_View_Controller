@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <Actions>
+	<Action id="dynamic" uiPath="hidden">
+		<Name>Retrieve Dynamic Image</Name>
+		<CallbackMethod>dynamic</CallbackMethod>
+	</Action>
 	<Action id="initialiseDynamicState" deviceFilter="self">
 		<Name>Initialise Dynamic State</Name>
 		<CallbackMethod>initialiseDynamicState</CallbackMethod>
@@ -10,9 +14,25 @@
 		<CallbackMethod>updateDynamicState</CallbackMethod>
 	</Action>
 
+	<Action id="skipToFirst" deviceFilter="self">
+		<Name>Skip To First</Name>
+		<CallbackMethod>skipToFirst</CallbackMethod>
+	</Action>
+
 	<Action id="skipToLatest" deviceFilter="self">
 		<Name>Skip To Latest</Name>
 		<CallbackMethod>skipToLatest</CallbackMethod>
+		<ConfigUI>
+			<Field id="skipType" type="menu" defaultValue="F">
+				<Label>Skip To Latest: </Label>
+				<List>
+					<Option value="F">Image File</Option>
+					<Option value="E">Event</Option>
+					<Option value="T">Half-Hour</Option>
+					<Option value="D">Day</Option>
+				</List>
+			</Field>
+		</ConfigUI>
 	</Action>
 
 	<Action id="daySkipBackward" deviceFilter="self">
@@ -30,6 +50,25 @@
 		<ConfigUI>
 			<Field id="number" type="textfield" defaultValue="1">
 				<Label>Number of Days To Skip Forward:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+
+	<Action id="eventSkipBackward" deviceFilter="self">
+		<Name>Event Skip Back</Name>
+		<CallbackMethod>eventSkipBackward</CallbackMethod>
+		<ConfigUI>
+			<Field id="number" type="textfield" defaultValue="1">
+				<Label>Number of Events To Skip Backward:</Label>
+			</Field>
+		</ConfigUI>
+	</Action>
+	<Action id="eventSkipForward" deviceFilter="self">
+		<Name>Event Skip Forward</Name>
+		<CallbackMethod>eventSkipForward</CallbackMethod>
+		<ConfigUI>
+			<Field id="number" type="textfield" defaultValue="1">
+				<Label>Number of Events To Skip Forward:</Label>
 			</Field>
 		</ConfigUI>
 	</Action>
