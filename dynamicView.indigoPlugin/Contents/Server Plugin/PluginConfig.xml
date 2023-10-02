@@ -5,7 +5,7 @@
         <Label>This Plugin manages dynamic images for displaying in Control Pages. 😄</Label>
     </Field>
     <Field id="copyright" type="label">
-        <Label>Copyright © 2016-2022 Autolog</Label>
+        <Label>Copyright © 2016-2023 Autolog</Label>
     </Field>
     <Field id="space-header-1" type="label">
         <Label/>

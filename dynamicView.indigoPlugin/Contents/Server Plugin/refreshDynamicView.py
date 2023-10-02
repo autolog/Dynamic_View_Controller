@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # Dynamic View Controller © Autolog 2016-2023
-# Requires Indigo 2023.1+
+# Requires Indigo 2022.1+
 #
 
 try:

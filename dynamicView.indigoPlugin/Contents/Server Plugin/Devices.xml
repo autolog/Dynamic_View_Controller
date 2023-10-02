@@ -94,7 +94,7 @@
                 <Description>Path to default file</Description>
             </Field>
             <Field id="help-8" type="label" fontColor="darkGray" fontSize="small" alignWithControl="true" alwaysUseInDialogHeightCalc="true">
-                <Label>Specify the full path of an existing file that you want displayed when no file is available to display.</Label>
+                <Label>Optionally, specify the full path of an existing file that you want displayed when no file is available to display. This will override the plugin default file used when there is no image to display.</Label>
             </Field>
 
             <Field id="space-header-A" type="label">
